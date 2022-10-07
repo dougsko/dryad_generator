@@ -121,9 +121,7 @@
         "money",
         "month",
         "morning",
-        "negative",
         "night",
-        "positive",
         "problem",
         "radio",
         "rendezvous",
@@ -145,6 +143,8 @@
         "shoes",
         "pants",
         "newspaper",
-        "magazine"
+        "magazine",
+        "park bench",
+        "tree"
     ]
 }
