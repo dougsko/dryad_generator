@@ -1,10 +1,10 @@
 {
-  "name": " ",
+  "name": "Dryad Generator",
   "version": "0.0.1",
-  "description": "",
-  "keywords": "",
+  "description": "Create secure, radio-friendly, and easy to use encryption tools.",
+  "keywords": "dryad, encryption",
   "license": "",
-  "author": "",
+  "author": "Doug Prostko",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "npm run prebuild && parcel build index.html --no-source-maps --public-url ./",
