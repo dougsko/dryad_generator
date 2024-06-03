@@ -1,5 +1,5 @@
 {
-  "name": "Dryad-Generator",
+  "name": "dryad-generator",
   "version": "0.0.1",
   "description": "Create secure, radio-friendly, and easy to use encryption tools.",
   "keywords": ["dryad", "encryption"],
