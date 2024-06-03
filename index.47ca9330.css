@@ -1,0 +1,45 @@
+body {
+  font: 7pt PT Mono;
+}
+
+.first {
+  font-weight: bold;
+}
+
+@media print {
+  .pagebreak {
+    clear: both;
+    page-break-after: always;
+  }
+}
+
+#dryad, #encodingTable {
+  float: left;
+  margin: 2px 2px 0 0;
+}
+
+#dryad2 {
+  padding: 2px;
+}
+
+.codeBook table, .codeBook tr, .codeBook td {
+  border-collapse: collapse;
+  white-space: nowrap;
+  border: 1px solid #000;
+}
+
+.border {
+  border: 1px solid #000;
+}
+
+.upperCase {
+  text-transform: uppercase;
+}
+
+.grid-container {
+  flex-wrap: wrap;
+  grid-template-columns: min-content auto;
+  gap: 2px;
+  display: flex;
+}
+/*# sourceMappingURL=index.47ca9330.css.map */

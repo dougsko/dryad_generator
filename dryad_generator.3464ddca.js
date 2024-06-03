@@ -1,45 +1,4 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>Dryad Generator</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="apple-touch-icon" href="/icon.b1b2fa1c.png">
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="/index.6dab377c.css">
-  <link rel="stylesheet" href="/index.47ca9330.css">
-
-  <meta name="theme-color" content="#fafafa">
-</head>
-
-<body>
-
-<div id="dryadTables" class="grid-container"></div>
-
-<br>
-  <div class="pagebreak"> </div>
-
-  <div id="wrapper">
-    <div id="encodingTable"></div>
-    <div id="codeBook" class="codeBook"></div>
-  </div>
-
-  <script src="/index.d40ef659.js"></script>
-  <script src="/index.1141a124.js"></script>
-  <script src="/index.fbb3188c.js" defer=""></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>// modules are defined as an array
+// modules are defined as an array
 // [ module function, map of requires ]
 //
 // map of requires is short require name -> numeric require
@@ -183,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"3bwwQ":[function(require,module,exports) {
+})({"hAbKD":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "2e5187698c063a1b";
+module.bundle.HMR_BUNDLE_ID = "0907ca6d3464ddca";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -624,21 +583,8 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"5S2RL":[function(require,module,exports) {
-window.ga = function() {
-    ga.q.push(arguments);
-};
-ga.q = [];
-ga.l = +new Date;
-ga("create", "UA-XXXXX-Y", "auto");
-ga("set", "anonymizeIp", true);
-ga("set", "transport", "beacon");
-ga("send", "pageview");
+},{}],"j4kuM":[function(require,module,exports) {
 
-},{}]},["3bwwQ","5S2RL"], "5S2RL", "parcelRequiree8c5")
+},{}]},["hAbKD","j4kuM"], "j4kuM", "parcelRequire94c2")
 
-</script>
-  <script src="https://www.google-analytics.com/analytics.js" async=""></script>
-</body>
-
-</html>
+//# sourceMappingURL=dryad_generator.3464ddca.js.map
