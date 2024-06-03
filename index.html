@@ -23,11 +23,10 @@
 </head>
 
 <body>
-  <div id="dryadTable1"></div>
-  <div id="dryadTable2"></div>
-  <div id="dryadTable3"></div>
 
-  <br>
+<div id="dryadTables" class="grid-container"></div>
+
+<br>
   <div class="pagebreak"> </div>
 
   <div id="wrapper">
@@ -37,10 +36,10 @@
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
+  <script type="module">
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>

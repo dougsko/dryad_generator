@@ -3,8 +3,7 @@
 } */
 
 body {
-  font-size: 8pt;
-  font-family: "PT Mono";
+  font: 7pt "PT Mono"; /* Combine font-size and font-family */
 }
 
 .first {
@@ -18,25 +17,22 @@ body {
   }
 }
 
-#dryad {
-    float: left;
-    margin: 2px;
+#dryad,
+#encodingTable {
+  float: left;
+  margin: 2px 2px 0 0; /* Combine margin properties */
 }
 
 #dryad2 {
-    padding: 2px;
+  padding: 2px;
 }
 
-#encodingTable {
-  float: left;
-  margin-right: 2px;
-}
-
-.codeBook table, .codeBook tr, .codeBook td {
+.codeBook table,
+.codeBook tr,
+.codeBook td {
   border: 1px solid black;
   border-collapse: collapse;
-  width: 0.1%;
-  white-space: nowrap;
+  white-space: nowrap; /* Remove width and use nowrap */
 }
 
 .border {
@@ -46,3 +42,14 @@ body {
 .upperCase {
   text-transform: uppercase;
 }
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: min-content auto;
+    gap: 2px; /* Adjust the gap between grid items */
+}
+
+.grid-item {
+}
+

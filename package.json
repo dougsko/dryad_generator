@@ -2,7 +2,7 @@
   "name": "Dryad-Generator",
   "version": "0.0.1",
   "description": "Create secure, radio-friendly, and easy to use encryption tools.",
-  "keywords": "dryad, encryption",
+  "keywords": ["dryad", "encryption"],
   "license": "",
   "author": "Doug Prostko",
   "scripts": {
@@ -13,6 +13,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "@parcel/packager-raw-url": "^2.12.0",
+    "@parcel/transformer-webmanifest": "^2.12.0",
     "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "install": "^0.13.0",
+    "uuid": "^9.0.1"
   }
 }

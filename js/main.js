@@ -68,7 +68,7 @@ function generateDryadTable(id) {
 
     // Create the table body
     const tbody = document.createElement('tbody');
-    const rowLabels = 'ABCDEFGHIJKLMNOPQRSTU'.split('');
+    const rowLabels = 'ABCDEFGHIJKLMNOPQRSTUVWXY'.split('');
     const numCols = headers.length - 1;
     const columnTextLengths = [4, 3, 3, 2, 2, 3, 2, 2, 2, 2];  // Specific text lengths for each column
 
@@ -215,14 +215,29 @@ function generateCodeBook(elementId) {
     }
 }
 
+// Function to generate tables dynamically
+function generateDryadTables(numTables) {
+  const gridContainer = document.getElementById("dryadTables");
+
+  for (let i = 1; i <= numTables; i++) {
+    const tableId = `dryadTable${i}`;
+    const table = document.createElement('div');
+    table.id = tableId;
+    table.classList.add('grid-item');
+    gridContainer.appendChild(table);
+    // Call your table generation function here if needed
+    generateDryadTable(tableId);
+  }
+}
+
+
+
+
 
 // Example usage
 document.addEventListener('DOMContentLoaded', () => {
-    generateDryadTable('dryadTable1');
-    generateDryadTable('dryadTable2');
-    generateDryadTable('dryadTable3');
-
+    // Call the function with the number of tables you want to generate
+    generateDryadTables(8); // Change the number as needed
     generateEncodingTable("encodingTable");
-
     generateCodeBook("codeBook");
 });
