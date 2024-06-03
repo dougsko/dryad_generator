@@ -2,21 +2,26 @@
   "name": "dryad-generator",
   "version": "0.0.1",
   "description": "Create secure, radio-friendly, and easy to use encryption tools.",
-  "keywords": ["dryad", "encryption"],
+  "keywords": [
+    "dryad",
+    "encryption"
+  ],
   "license": "",
   "author": "Doug Prostko",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "npm run prebuild && parcel build index.html --no-source-maps --public-url ./",
+    "build": "npm run prebuild && parcel build index.html --no-source-maps --public-url /dryad_generator/",
     "dev": "parcel index.html --open",
     "start": "npm run build && npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
     "@parcel/packager-raw-url": "^2.12.0",
     "@parcel/transformer-webmanifest": "^2.12.0",
+    "gh-pages": "^6.1.1",
     "parcel": "^2.12.0"
   },
   "dependencies": {
