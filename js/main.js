@@ -15,7 +15,7 @@ function shuffleArray(array) {
     }
 }
 
-function generateTable(id) {
+function generateDryadTable(id) {
     const tableElement = document.getElementById(id);
     if (!tableElement) {
         console.error(`Element with ID ${id} not found.`);
@@ -98,42 +98,131 @@ function generateTable(id) {
     tableElement.appendChild(table);
 }
 
+function generateEncodingTable(elementId) {
+    var tableHtml = `
+        <table class="encodingTable border">
+            <tbody>
+                <tr>
+                    <td>CODE-0</td>
+                    <td>B-70</td>
+                    <td>P-80</td>
+                    <td>FIG-90</td>
+                </tr>
+                <tr>
+                    <td>A-1</td>
+                    <td>C-71</td>
+                    <td>Q-81</td>
+                    <td>(.)-90</td>
+                </tr>
+                <tr>
+                    <td>E-2</td>
+                    <td>D-72</td>
+                    <td>R-82</td>
+                    <td>(:)-92</td>
+                </tr>
+                <tr>
+                    <td>I-3</td>
+                    <td>F-73</td>
+                    <td>S-83</td>
+                    <td>(')-93</td>
+                </tr>
+                <tr>
+                    <td>N-4</td>
+                    <td>G-74</td>
+                    <td>U-84</td>
+                    <td>( )-94</td>
+                </tr>
+                <tr>
+                    <td>O-5</td>
+                    <td>H-75</td>
+                    <td>V-85</td>
+                    <td>(+)-95</td>
+                </tr>
+                <tr>
+                    <td>T-6</td>
+                    <td>J-76</td>
+                    <td>W-86</td>
+                    <td>(-)-96</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>K-77</td>
+                    <td>X-87</td>
+                    <td>(=)-97</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>L-78</td>
+                    <td>Y-88</td>
+                    <td>REQ-98</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>M-79</td>
+                    <td>Z-89</td>
+                    <td>SPC-99</td>
+                </tr>
+            </tbody>
+        </table>`;
+
+    document.getElementById(elementId).innerHTML = tableHtml;
+}
+
+function generateCodeBook(elementId) {
+    // Create table element
+    let codeBookTable = document.createElement("table");
+    codeBookTable.setAttribute("id", "codeBookTable");
+
+    // Create tbody element
+    let codeBookTableBody = document.createElement("tbody");
+    codeBookTableBody.setAttribute("id", "codeBookTableBody");
+
+    // Append tbody to table
+    codeBookTable.appendChild(codeBookTableBody);
+
+    // Append table to the specified element
+    let codeBookContainer = document.getElementById(elementId);
+    codeBookContainer.appendChild(codeBookTable);
+
+    let words = codeBook.words.sort();
+    for (let i = 0; i < 11; i++) {
+        let row = codeBookTableBody.insertRow();
+        let td = row.insertCell(0);
+        let span = td.appendChild(document.createElement("span"));
+        span.setAttribute("class", "upperCase");
+        span.appendChild(document.createTextNode(codeBook.numbers[i] + " " + words[i]));
+
+        td = row.insertCell(1);
+        span = td.appendChild(document.createElement("span"));
+        span.setAttribute("class", "upperCase");
+        span.appendChild(document.createTextNode(codeBook.numbers[i + 11] + " " + words[i + 11]));
+
+        td = row.insertCell(2);
+        span = td.appendChild(document.createElement("span"));
+        span.setAttribute("class", "upperCase");
+        span.appendChild(document.createTextNode(codeBook.numbers[i + 22] + " " + words[i + 22]));
+
+        td = row.insertCell(3);
+        span = td.appendChild(document.createElement("span"));
+        span.setAttribute("class", "upperCase");
+        let word = " ";
+        if (codeBook.words[i + 33] == undefined) {
+            word = "";
+        } else {
+            word = codeBook.words[i + 33];
+        }
+        span.appendChild(document.createTextNode(codeBook.numbers[i + 33] + " " + word));
+    }
+}
+
+
 // Example usage
 document.addEventListener('DOMContentLoaded', () => {
-    generateTable('dryadTable1');
-    generateTable('dryadTable2');
-    generateTable('dryadTable3');
+    generateDryadTable('dryadTable1');
+    generateDryadTable('dryadTable2');
+    generateDryadTable('dryadTable3');
+
+    generateEncodingTable("encodingTable");
+
+    generateCodeBook("codeBook");
 });
-
-
-
-let words = codeBook.words.sort();
-let codeBookTableBody = document.getElementById("codeBookTableBody");
-for(let i = 0; i < 11; i++) {
-    let row = codeBookTableBody.insertRow();
-    let td = row.insertCell(0);
-    let span = td.appendChild(document.createElement("span"));
-    span.setAttribute("class", "upperCase");
-    span.appendChild(document.createTextNode(codeBook.numbers[i] + " " + words[i]));
-
-    td = row.insertCell(1);
-    span = td.appendChild(document.createElement("span"));
-    span.setAttribute("class", "upperCase");
-    span.appendChild(document.createTextNode(codeBook.numbers[i + 11] + " " + words[i + 11]));
-
-    td = row.insertCell(2);
-    span = td.appendChild(document.createElement("span"));
-    span.setAttribute("class", "upperCase");
-    span.appendChild(document.createTextNode(codeBook.numbers[i + 22] + " " + words[i + 22]));
-
-    td = row.insertCell(3);
-    span = td.appendChild(document.createElement("span"));
-    span.setAttribute("class", "upperCase");
-    let word = " ";
-    if(codeBook.words[i + 33] == undefined) {
-       word = "";
-    } else {
-       word = codeBook.words[i + 33];
-    }
-    span.appendChild(document.createTextNode(codeBook.numbers[i + 33] + " " + word));
-}
