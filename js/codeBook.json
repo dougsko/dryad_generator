@@ -20,6 +20,7 @@
         "172",
         "181",
         "190",
+        "199",
         "208",
         "217",
         "226",
@@ -29,7 +30,6 @@
         "262",
         "271",
         "280",
-        "199",
         "307",
         "316",
         "325",
@@ -145,6 +145,9 @@
         "newspaper",
         "magazine",
         "park bench",
-        "tree"
+        "tree",
+        "Are you ok? Do you need anything?",
+        "Yes, we are ok.  No assistance needed.",
+        "Meet me at POINT A in 1 hour."
     ]
 }

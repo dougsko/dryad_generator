@@ -3,7 +3,7 @@
 } */
 
 body {
-  font-size: 6pt;
+  font-size: 8pt;
   font-family: "PT Mono";
 }
 
@@ -16,6 +16,15 @@ body {
     clear: both;
     page-break-after: always;
   }
+}
+
+#dryad {
+    float: left;
+    margin: 2px;
+}
+
+#dryad2 {
+    padding: 2px;
 }
 
 #encodingTable {
