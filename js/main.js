@@ -1,74 +1,111 @@
 import * as codeBook from './codeBook.json'
 import { v4 as uuidv4 } from 'uuid'
 
-let array = new Uint8Array(1);
-const alpha = Array.from(Array(25)).map((e, i) => i + 65);
-const alphabet = alpha.map((x) => String.fromCharCode(x));
+// main.js
 
-let perms = []
-for(let i = 0; i < 25; i++) {
-    let unique = []
-    while(unique.length < 25) {
-        window.crypto.getRandomValues(array);
-        const num = array[0];
-        const randomLetter = alphabet[(num % 25)];
-        if(!unique.includes(randomLetter)) {
-            unique.push(randomLetter);
-        }
-    }
-    perms.push(unique);
+function generateRandomLetter() {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return letters.charAt(Math.floor(Math.random() * letters.length));
 }
 
-let tableId = document.getElementById("tableId");
-tableId.innerText = "Id: " + uuidv4().toString().split("-")[4];
-
-let dryadTableHeader = document.getElementById("dryadTableHeader");
-let row = dryadTableHeader.insertRow();
-for(let i = 0; i <= 10; i++) {
-    let th = row.appendChild(document.createElement("th"));
-    if(i == 0) {
-        th.innerText = "  ";
-    } else {
-        th.innerText = (i - 1).toString();
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
-alphabet.forEach((letter, i) => {
-    let row = dryadTableHeader.insertRow();
-    let td = row.insertCell(0);
-    td.innerText = letter;
-    td.setAttribute("class", "first");
+function generateTable(id) {
+    const tableElement = document.getElementById(id);
+    if (!tableElement) {
+        console.error(`Element with ID ${id} not found.`);
+        return;
+    }
 
-    td = row.insertCell(1);
-    td.innerText = perms[i].join("").substring(0,4);
+    // Clear the existing content
+    tableElement.innerHTML = '';
 
-    td = row.insertCell(2);
-    td.innerText = perms[i].join("").substring(4,7);
+    // Create headers
+    const fromDate = document.createElement('span');
+    fromDate.id = 'fromDate';
+    fromDate.className = 'first';
+    fromDate.innerText = 'From: ';
+    tableElement.appendChild(fromDate);
 
-    td = row.insertCell(3);
-    td.innerText = perms[i].join("").substring(7,10);
+    tableElement.appendChild(document.createElement('br'));
 
-    td = row.insertCell(4);
-    td.innerText = perms[i].join("").substring(10,12);
+    const untilDate = document.createElement('span');
+    untilDate.id = 'untilDate';
+    untilDate.className = 'first';
+    untilDate.innerText = 'Until: ';
+    tableElement.appendChild(untilDate);
 
-    td = row.insertCell(5);
-    td.innerText = perms[i].join("").substring(12,14);
+    tableElement.appendChild(document.createElement('br'));
 
-    td = row.insertCell(6);
-    td.innerText = perms[i].join("").substring(14,17);
+    const tableId = document.createElement('span');
+    tableId.id = 'tableId';
+    tableId.className = 'first';
+    tableId.innerText = 'Id: ';
+    tableElement.appendChild(tableId);
 
-    td = row.insertCell(7);
-    td.innerText = perms[i].join("").substring(17,19);
+    tableElement.appendChild(document.createElement('br'));
 
-    td = row.insertCell(8);
-    td.innerText = perms[i].join("").substring(19,21);
+    // Table generation logic
+    const table = document.createElement('table');
+    table.classList.add('dryadTable', 'border');
 
-    td = row.insertCell(9);
-    td.innerText = perms[i].join("").substring(21,23);
+    // Create the table header
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    const headers = ['', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    headers.forEach(headerText => {
+        const th = document.createElement('th');
+        th.innerText = headerText;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
 
-    td = row.insertCell(10);
-    td.innerText = perms[i].join("").substring(23,25);
+    // Create the table body
+    const tbody = document.createElement('tbody');
+    const rowLabels = 'ABCDEFGHIJKLMNOPQRSTU'.split('');
+    const numCols = headers.length - 1;
+    const columnTextLengths = [4, 3, 3, 2, 2, 3, 2, 2, 2, 2];  // Specific text lengths for each column
+
+    rowLabels.forEach(label => {
+        const row = document.createElement('tr');
+        const rowLabelCell = document.createElement('td');
+        rowLabelCell.innerText = label;
+        rowLabelCell.className = 'first';
+        row.appendChild(rowLabelCell);
+
+        // Generate shuffled alphabet for the row
+        let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+        shuffleArray(alphabet);
+
+        // Fill the columns with appropriate number of letters from the shuffled alphabet
+        columnTextLengths.forEach(length => {
+            const cell = document.createElement('td');
+            const randomText = alphabet.splice(0, length).join('');
+            cell.innerText = randomText;
+            row.appendChild(cell);
+        });
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    tableElement.appendChild(table);
+}
+
+// Example usage
+document.addEventListener('DOMContentLoaded', () => {
+    generateTable('dryadTable1');
+    generateTable('dryadTable2');
+    generateTable('dryadTable3');
 });
+
+
 
 let words = codeBook.words.sort();
 let codeBookTableBody = document.getElementById("codeBookTableBody");
