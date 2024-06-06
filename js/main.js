@@ -185,6 +185,46 @@ function generateCodeBook(elementId) {
     codeBookContainer.appendChild(codeBookTable);
 
     let words = codeBook.words.sort();
+    for (let i = 0; i < 17; i++) {
+        let row = codeBookTableBody.insertRow();
+
+        for (let j = 0; j < 6; j++) {
+            let td = row.insertCell(j);
+            let span = td.appendChild(document.createElement("span"));
+            span.setAttribute("class", "upperCase");
+
+            let wordIndex = i + (j * 17);
+            let word = " ";
+            if (codeBook.words[wordIndex] === undefined) {
+                word = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; // Placeholder for empty cell
+            } else {
+                word = codeBook.words[wordIndex];
+            }
+            if (codeBook.numbers[wordIndex]) {
+                span.innerHTML = `${codeBook.numbers[wordIndex]} ${word}`;
+            }
+        }
+    }
+}
+
+
+/*function generateCodeBook(elementId) {
+    // Create table element
+    let codeBookTable = document.createElement("table");
+    codeBookTable.setAttribute("id", "codeBookTable");
+
+    // Create tbody element
+    let codeBookTableBody = document.createElement("tbody");
+    codeBookTableBody.setAttribute("id", "codeBookTableBody");
+
+    // Append tbody to table
+    codeBookTable.appendChild(codeBookTableBody);
+
+    // Append table to the specified element
+    let codeBookContainer = document.getElementById(elementId);
+    codeBookContainer.appendChild(codeBookTable);
+
+    let words = codeBook.words.sort();
     for (let i = 0; i < 11; i++) {
         let row = codeBookTableBody.insertRow();
         let td = row.insertCell(0);
@@ -208,12 +248,15 @@ function generateCodeBook(elementId) {
         let word = " ";
         if (codeBook.words[i + 33] == undefined) {
             word = "";
+            if (codeBook.words[wordIndex] === undefined) {
+                            word = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; // Placeholder for empty cell
+
         } else {
             word = codeBook.words[i + 33];
         }
         span.appendChild(document.createTextNode(codeBook.numbers[i + 33] + " " + word));
     }
-}
+}*/
 
 // Function to generate tables dynamically
 function generateDryadTables(numTables) {
